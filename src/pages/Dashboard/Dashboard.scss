@@ -227,12 +227,62 @@ $color-border: #3A3A39;
     }
   }
 
-  /* Handle ultra-small phones so HUD doesn't break */
+  /* ========================================================
+     MOBILE RESPONSIVENESS OVERHAUL (FIX FOR YOUR SCREENSHOT)
+     ======================================================== */
   @media (max-width: 600px) {
-    .metrics-hud {
-      padding: 12px;
-      .hud-actions { display: none; /* Hide actions on small screens, rely on a settings gear later if needed */ }
+    .dashboard-content {
+      padding: 16px 12px; // Reduced padding to give more space
     }
-    .top-nav { margin-bottom: 16px; }
+
+    .top-nav { 
+      margin-bottom: 16px; 
+      .month-selector {
+        .month-text h2 { font-size: 1.5rem; } // Scale down text
+      }
+    }
+
+    /* Fixed Metrics HUD for Mobile - Using Grid instead of Flex */
+    .metrics-hud {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3 Equal Columns
+      gap: 10px;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      
+      .hud-actions, .hud-divider { 
+        display: none; // Hide dividers and actions on mobile to save space
+      }
+
+      .hud-block {
+        padding: 0;
+        text-align: center;
+        align-items: center;
+
+        .label {
+          font-size: 0.6rem;
+          letter-spacing: 1px;
+        }
+
+        h3 {
+          font-size: 0.85rem; // Reduced size
+          white-space: normal; // CRITICAL: Allows "WEIGHT LOSS" to stack instead of cut off
+          line-height: 1.2;
+        }
+      }
+    }
+
+    /* Tweak Calendar to fit perfectly on small screens */
+    .calendar-section {
+      .weekdays { font-size: 0.65rem; }
+      .days-grid {
+        gap: 6px; // Tighter gap
+        .day-box {
+          border-radius: 4px;
+          .date-num { font-size: 1rem; }
+        }
+      }
+    }
   }
-} 
+}

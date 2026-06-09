@@ -247,16 +247,61 @@
   background: transparent;
 }
 .dashboard-container {
-  /* Handle ultra-small phones so HUD doesn't break */
+  /* ========================================================
+     MOBILE RESPONSIVENESS OVERHAUL (FIX FOR YOUR SCREENSHOT)
+     ======================================================== */
 }
 @media (max-width: 600px) {
-  .dashboard-container .metrics-hud {
-    padding: 12px;
-  }
-  .dashboard-container .metrics-hud .hud-actions {
-    display: none; /* Hide actions on small screens, rely on a settings gear later if needed */
+  .dashboard-container .dashboard-content {
+    padding: 16px 12px;
   }
   .dashboard-container .top-nav {
     margin-bottom: 16px;
+  }
+  .dashboard-container .top-nav .month-selector .month-text h2 {
+    font-size: 1.5rem;
+  }
+  .dashboard-container {
+    /* Fixed Metrics HUD for Mobile - Using Grid instead of Flex */
+  }
+  .dashboard-container .metrics-hud {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  .dashboard-container .metrics-hud .hud-actions, .dashboard-container .metrics-hud .hud-divider {
+    display: none;
+  }
+  .dashboard-container .metrics-hud .hud-block {
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+  .dashboard-container .metrics-hud .hud-block .label {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+  .dashboard-container .metrics-hud .hud-block h3 {
+    font-size: 0.85rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
+  .dashboard-container {
+    /* Tweak Calendar to fit perfectly on small screens */
+  }
+  .dashboard-container .calendar-section .weekdays {
+    font-size: 0.65rem;
+  }
+  .dashboard-container .calendar-section .days-grid {
+    gap: 6px;
+  }
+  .dashboard-container .calendar-section .days-grid .day-box {
+    border-radius: 4px;
+  }
+  .dashboard-container .calendar-section .days-grid .day-box .date-num {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
