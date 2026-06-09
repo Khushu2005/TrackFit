@@ -4,9 +4,11 @@
   background-color: #20201F;
   color: #F8F8F8;
   font-family: "Outfit", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .dashboard-container .water-ripple {
   position: fixed;
@@ -36,6 +38,7 @@
   flex-direction: column;
   padding: 24px 20px;
   height: 100%;
+  box-sizing: border-box;
 }
 .dashboard-container {
   /* --- TOP NAV --- */
@@ -100,6 +103,7 @@
   margin-bottom: 24px;
   flex-shrink: 0;
   overflow-x: auto;
+  box-sizing: border-box;
 }
 .dashboard-container .metrics-hud::-webkit-scrollbar {
   display: none;
@@ -177,6 +181,7 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
+  width: 100%;
 }
 .dashboard-container .calendar-section .weekdays {
   display: grid;
@@ -193,7 +198,8 @@
   flex: 1;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  /* Fixed: Changed grid rows to make squares */
+  grid-template-rows: repeat(6, minmax(40px, 1fr));
   gap: 8px;
 }
 .dashboard-container .calendar-section .days-grid .day-box {
@@ -206,6 +212,9 @@
   align-items: center;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
+  /* Force aspect ratio to prevent tall boxes */
+  aspect-ratio: 1/1;
+  max-height: 60px;
 }
 .dashboard-container .calendar-section .days-grid .day-box.empty {
   background: transparent;
@@ -220,7 +229,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 .dashboard-container .calendar-section .days-grid .day-box.rest {
   opacity: 0.3;
@@ -248,10 +257,13 @@
 }
 .dashboard-container {
   /* ========================================================
-     MOBILE RESPONSIVENESS OVERHAUL (FIX FOR YOUR SCREENSHOT)
+     MOBILE RESPONSIVENESS (FIX FOR SCREENSHOT)
      ======================================================== */
 }
 @media (max-width: 600px) {
+  .dashboard-container .dashboard-container {
+    background-color: #20201F;
+  }
   .dashboard-container .dashboard-content {
     padding: 16px 12px;
   }
@@ -261,16 +273,13 @@
   .dashboard-container .top-nav .month-selector .month-text h2 {
     font-size: 1.5rem;
   }
-  .dashboard-container {
-    /* Fixed Metrics HUD for Mobile - Using Grid instead of Flex */
-  }
   .dashboard-container .metrics-hud {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 12px 10px;
     margin-bottom: 20px;
-    border-radius: 12px;
+    border-radius: 8px;
   }
   .dashboard-container .metrics-hud .hud-actions, .dashboard-container .metrics-hud .hud-divider {
     display: none;
@@ -278,30 +287,38 @@
   .dashboard-container .metrics-hud .hud-block {
     padding: 0;
     text-align: center;
-    align-items: center;
+    flex: 1;
   }
   .dashboard-container .metrics-hud .hud-block .label {
-    font-size: 0.6rem;
-    letter-spacing: 1px;
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
   }
   .dashboard-container .metrics-hud .hud-block h3 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     white-space: normal;
-    line-height: 1.2;
+    line-height: 1.1;
   }
   .dashboard-container {
-    /* Tweak Calendar to fit perfectly on small screens */
+    /* Fixed Calendar for Mobile */
   }
   .dashboard-container .calendar-section .weekdays {
     font-size: 0.65rem;
   }
   .dashboard-container .calendar-section .days-grid {
     gap: 6px;
+    grid-template-rows: repeat(6, auto);
   }
   .dashboard-container .calendar-section .days-grid .day-box {
     border-radius: 4px;
+    max-height: 50px;
   }
   .dashboard-container .calendar-section .days-grid .day-box .date-num {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  .dashboard-container .calendar-section .days-grid .day-box .dot {
+    margin-top: 2px;
+    width: 3px;
+    height: 3px;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
