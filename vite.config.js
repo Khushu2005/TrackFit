@@ -13,7 +13,7 @@ export default defineConfig({
         short_name: "Fit",
         description: 'Your offline-first workout partner.',
         theme_color: '#000000',
-        background_color: '#ffffff',
+        background_color: '#1A1A1A',
         "icons": [
           {
             "src": "icons/fit_icon-48x48.png",
