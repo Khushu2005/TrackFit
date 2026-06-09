@@ -1,0 +1,234 @@
+// src/pages/Onboarding/Onboarding.scss
+@import '../../styles/variables';
+
+.onboarding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-main;
+  padding: $spacing-md;
+
+  /* Global box-sizing fix for all elements inside onboarding */
+  * {
+    box-sizing: border-box;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 420px;
+    background: #1A1A1A; // Solid, deep dark grey
+    border: 1px solid $color-border;
+    border-radius: 16px; 
+    padding: 40px $spacing-lg;
+    
+    .progress-indicator {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: $color-primary; 
+      margin-bottom: $spacing-lg;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      color: $color-text;
+      letter-spacing: -0.5px;
+    }
+
+    .step-content p {
+      color: $color-text-muted; 
+      margin-bottom: 32px; // Increased bottom margin to prevent overlap
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    // Input fields layout
+    .input-group {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      width: 100%;
+
+      .input-wrapper {
+        flex: 1;
+        min-width: 0; // CRITICAL FIX: Prevents flex child from pushing out
+        display: flex;
+        flex-direction: column;
+        gap: 10px; // Proper gap between label and input
+
+        label {
+          font-size: 0.85rem;
+          color: $color-text; // Made label brighter for better readability
+          font-weight: 600;
+        }
+      }
+    }
+
+    // Input fields styling
+    input[type="text"], input[type="number"], input[type="time"] {
+      width: 100%;
+      background: $color-bg; 
+      border: 1px solid $color-border;
+      color: $color-text;
+      padding: 16px;
+      border-radius: 8px; 
+      font-size: 1.1rem;
+      font-family: $font-main;
+      margin-bottom: 24px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      color-scheme: dark;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      &:focus { 
+        border-color: $color-primary; 
+      }
+    }
+
+    // Fix for single input (like Name step) to match spacing
+    input[type="text"] {
+      margin-top: 16px;
+    }
+
+    // Weight Loss / Gain selectors
+    .goal-selector {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      width: 100%;
+
+      button {
+        flex: 1;
+        padding: 16px 0;
+        background: $color-bg;
+        border: 1px solid $color-border;
+        color: $color-text-muted;
+        border-radius: 8px;
+        font-family: $font-main;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: $color-text-muted;
+          color: $color-text;
+        }
+
+        &.active {
+          background: $color-primary; 
+          color: $color-text; // WHITE text on orange background
+          border-color: $color-primary; 
+        }
+      }
+    }
+
+    // Time Slider
+    .time-slider-container {
+      margin-bottom: 48px; // Extra space before buttons
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; 
+      width: 100%;
+      
+      .time-display { 
+        font-size: 2.5rem; 
+        color: $color-text; 
+        margin-bottom: 24px;
+      }
+      
+      input[type=range] {
+        width: 100%;
+        accent-color: $color-primary; 
+        cursor: pointer;
+        height: 6px; // Sleeker slider line
+      }
+    }
+
+    // Alarm Time Specific Styling
+    .alarm-input-container {
+      margin-bottom: 48px; // Extra space before buttons
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .alarm-time-picker {
+        font-size: 3.5rem; 
+        font-weight: 800;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        color: $color-primary; 
+        width: auto;
+        
+        &:focus {
+          border: none;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(60%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(100%) contrast(100%); 
+          cursor: pointer;
+          margin-left: 12px;
+          width: 35px; // Slightly bigger clock icon
+          height: 35px;
+        }
+      }
+    }
+
+    // Bottom Navigation Buttons
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+    }
+
+    button {
+      padding: 16px;
+      border-radius: 8px; 
+      font-family: $font-main;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s ease;
+      
+      &.next-btn {
+        width: 100%;
+        background: $color-text; 
+        color: $color-bg;        
+        flex: 2;
+        &:active { opacity: 0.8; }
+      }
+      
+      &.back-btn {
+        background: $color-bg;
+        color: $color-text;
+        border: 1px solid $color-border;
+        flex: 1;
+        &:hover { border-color: $color-text-muted; }
+        &:active { opacity: 0.8; }
+      }
+
+      &.generate-btn {
+        background: $color-primary; 
+        color: $color-text; // WHITE text on orange background
+        
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

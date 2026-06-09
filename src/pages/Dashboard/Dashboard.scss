@@ -1,0 +1,238 @@
+// src/pages/Dashboard/Dashboard.scss
+
+// Luxury & Energetic Color Palette
+$color-bg: #20201F;        
+$color-surface: #262625;   
+$color-primary: #EE6E4D;   
+$color-text: #F8F8F8;      
+$color-grey: #888888;
+$color-border: #3A3A39;    
+
+.dashboard-container {
+  height: 100vh;
+  height: 100dvh;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  
+  .water-ripple {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(238, 110, 77, 0.8); 
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .bubble-overlay {
+    position: fixed;
+    background: $color-bg;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  /* --- MAIN CONTENT --- */
+  .dashboard-content {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px;
+    height: 100%; 
+  }
+
+  /* --- TOP NAV --- */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; 
+    margin-bottom: 24px;
+    
+    .logo-wrapper {
+      .nav-logo { 
+        width: 65px; 
+        height: auto; 
+        object-fit: contain; 
+      }
+    }
+    
+    .month-selector {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .icon-arrow {
+        background: transparent; color: $color-grey; border: none; font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover { color: $color-primary; } 
+      }
+
+      .month-text {
+        text-align: right;
+        h2 { font-size: 1.8rem; font-weight: 800; line-height: 1; text-transform: uppercase; letter-spacing: 1px; }
+        span { font-size: 0.85rem; color: $color-primary; font-weight: 700; letter-spacing: 3px; display: block; margin-top: 2px;}
+      }
+    }
+  }
+
+  /* --- METRICS HUD (New Professional Banner) --- */
+  .metrics-hud {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid $color-border;
+    border-radius: 8px; // Sharp, professional corners
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+    overflow-x: auto; // Allows slight swipe on very small phones if needed
+
+    // Hide scrollbar
+    &::-webkit-scrollbar { display: none; }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .hud-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 16px;
+
+      &:first-child { padding-left: 0; }
+
+      .label {
+        color: $color-grey;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        
+        &.highlight { color: $color-primary; }
+      }
+    }
+
+    .hud-divider {
+      width: 1px;
+      height: 30px;
+      background-color: $color-border;
+    }
+
+    .hud-actions {
+      display: flex;
+      gap: 12px;
+      margin-left: auto; // Pushes buttons to the far right
+      padding-left: 16px;
+
+      .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-surface;
+        color: $color-text;
+        border: 1px solid $color-border;
+        padding: 10px; // Square padding for icons
+        font-size: 1.2rem; // Perfect size for react-icons
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover { background: $color-text; color: $color-bg; }
+        &.logout {
+          background: transparent;
+          color: $color-grey;
+          border-color: transparent;
+          &:hover { color: $color-primary; }
+        }
+      }
+    }
+  }
+
+  /* --- NO-SCROLL CALENDAR SECTION --- */
+  .calendar-section {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    min-height: 0; 
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      margin-bottom: 12px;
+      color: $color-grey;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .days-grid {
+      flex: 1; 
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 1fr); 
+      gap: 8px;
+
+      .day-box {
+        background: $color-surface; // Solid dark grey background
+        border: 1px solid transparent;
+        border-radius: 6px; // Professional sharp radius
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+
+        &.empty { background: transparent; cursor: default; }
+
+        .date-num { font-size: 1.1rem; font-weight: 500; color: $color-text; }
+        .dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; }
+
+        &.rest { opacity: 0.3; }
+        
+        &.completed { 
+          color: $color-grey;
+          .dot { background: $color-grey; } 
+        }
+
+        &.today {
+          background: $color-primary; 
+          color: $color-bg; 
+          .date-num { color: $color-bg; font-weight: 800; }
+          .dot { background: $color-bg; }
+        }
+
+        &:not(.empty):not(.today):hover { 
+          border-color: $color-primary; 
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  /* Handle ultra-small phones so HUD doesn't break */
+  @media (max-width: 600px) {
+    .metrics-hud {
+      padding: 12px;
+      .hud-actions { display: none; /* Hide actions on small screens, rely on a settings gear later if needed */ }
+    }
+    .top-nav { margin-bottom: 16px; }
+  }
+} 

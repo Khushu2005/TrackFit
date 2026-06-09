@@ -1,0 +1,25 @@
+// src/styles/_variables.scss
+
+// --- THE NEW ENERGETIC PALETTE ---
+$color-bg: #20201F;          // Warm Dark Grey (Main Background)
+$color-primary: #EE6E4D;     // Energetic Coral Orange (Accent & Today's Highlight)
+$color-text: #F8F8F8;        // Crisp Off-White for easy reading
+$color-text-muted: rgba(255, 255, 255, 0.5); // For secondary text
+
+// Buttons & Borders
+$color-btn-bg: #EE6E4D;      // Primary action buttons
+$color-btn-text: #FFFFFF;    // White text on orange button
+$color-border: #3A3A39;      // Subtle border matching the warm dark bg
+
+// Premium Gradient (from your image)
+$gradient-primary: linear-gradient(135deg, #EE6E4D 0%, #c4563a 100%);
+$gradient-bg: linear-gradient(180deg, #20201F 0%, #151514 100%);
+
+// Spacing
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Typography
+$font-main: 'Outfit', sans-serif; // Premium font humne set kiya tha

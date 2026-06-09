@@ -1,0 +1,204 @@
+.onboarding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #20201F;
+  color: #F8F8F8;
+  font-family: "Outfit", sans-serif;
+  padding: 16px;
+  /* Global box-sizing fix for all elements inside onboarding */
+}
+.onboarding-container * {
+  box-sizing: border-box;
+}
+.onboarding-container .form-card {
+  width: 100%;
+  max-width: 420px;
+  background: #1A1A1A;
+  border: 1px solid #3A3A39;
+  border-radius: 16px;
+  padding: 40px 24px;
+}
+.onboarding-container .form-card .progress-indicator {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #EE6E4D;
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+.onboarding-container .form-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  color: #F8F8F8;
+  letter-spacing: -0.5px;
+}
+.onboarding-container .form-card .step-content p {
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 32px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.onboarding-container .form-card .input-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+.onboarding-container .form-card .input-group .input-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.onboarding-container .form-card .input-group .input-wrapper label {
+  font-size: 0.85rem;
+  color: #F8F8F8;
+  font-weight: 600;
+}
+.onboarding-container .form-card input[type=text], .onboarding-container .form-card input[type=number], .onboarding-container .form-card input[type=time] {
+  width: 100%;
+  background: #20201F;
+  border: 1px solid #3A3A39;
+  color: #F8F8F8;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-family: "Outfit", sans-serif;
+  margin-bottom: 24px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color-scheme: dark;
+}
+.onboarding-container .form-card input[type=text]::-moz-placeholder, .onboarding-container .form-card input[type=number]::-moz-placeholder, .onboarding-container .form-card input[type=time]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.onboarding-container .form-card input[type=text]::placeholder, .onboarding-container .form-card input[type=number]::placeholder, .onboarding-container .form-card input[type=time]::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.onboarding-container .form-card input[type=text]:focus, .onboarding-container .form-card input[type=number]:focus, .onboarding-container .form-card input[type=time]:focus {
+  border-color: #EE6E4D;
+}
+.onboarding-container .form-card input[type=text] {
+  margin-top: 16px;
+}
+.onboarding-container .form-card .goal-selector {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+.onboarding-container .form-card .goal-selector button {
+  flex: 1;
+  padding: 16px 0;
+  background: #20201F;
+  border: 1px solid #3A3A39;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.onboarding-container .form-card .goal-selector button:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #F8F8F8;
+}
+.onboarding-container .form-card .goal-selector button.active {
+  background: #EE6E4D;
+  color: #F8F8F8;
+  border-color: #EE6E4D;
+}
+.onboarding-container .form-card .time-slider-container {
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.onboarding-container .form-card .time-slider-container .time-display {
+  font-size: 2.5rem;
+  color: #F8F8F8;
+  margin-bottom: 24px;
+}
+.onboarding-container .form-card .time-slider-container input[type=range] {
+  width: 100%;
+  accent-color: #EE6E4D;
+  cursor: pointer;
+  height: 6px;
+}
+.onboarding-container .form-card .alarm-input-container {
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.onboarding-container .form-card .alarm-input-container .alarm-time-picker {
+  font-size: 3.5rem;
+  font-weight: 800;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: #EE6E4D;
+  width: auto;
+}
+.onboarding-container .form-card .alarm-input-container .alarm-time-picker:focus {
+  border: none;
+}
+.onboarding-container .form-card .alarm-input-container .alarm-time-picker::-webkit-calendar-picker-indicator {
+  filter: invert(60%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+  cursor: pointer;
+  margin-left: 12px;
+  width: 35px;
+  height: 35px;
+}
+.onboarding-container .form-card .btn-group {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+.onboarding-container .form-card button {
+  padding: 16px;
+  border-radius: 8px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+.onboarding-container .form-card button.next-btn {
+  width: 100%;
+  background: #F8F8F8;
+  color: #20201F;
+  flex: 2;
+}
+.onboarding-container .form-card button.next-btn:active {
+  opacity: 0.8;
+}
+.onboarding-container .form-card button.back-btn {
+  background: #20201F;
+  color: #F8F8F8;
+  border: 1px solid #3A3A39;
+  flex: 1;
+}
+.onboarding-container .form-card button.back-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.onboarding-container .form-card button.back-btn:active {
+  opacity: 0.8;
+}
+.onboarding-container .form-card button.generate-btn {
+  background: #EE6E4D;
+  color: #F8F8F8;
+}
+.onboarding-container .form-card button.generate-btn:hover {
+  opacity: 0.9;
+}/*# sourceMappingURL=Onboarding.css.map */
