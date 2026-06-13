@@ -1,5 +1,22 @@
 // src/pages/Dashboard/Dashboard.scss
 
+// ==========================================
+// THE FIX FOR THE WHITE BORDER EVERYWHERE
+// ==========================================
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #20201F;
+  overflow-x: hidden; // Kills any horizontal scrolling/white lines
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// ==========================================
+
 // Luxury & Energetic Color Palette
 $color-bg: #20201F;        
 $color-surface: #262625;   
@@ -14,12 +31,9 @@ $color-border: #3A3A39;
   background-color: $color-bg;
   color: $color-text;
   font-family: 'Outfit', sans-serif;
-  // White line fix: Prevent horizontal scroll causing edges to show
-  overflow-x: hidden; 
-  overflow-y: auto; 
+  overflow: hidden; 
   display: flex;
   justify-content: center;
-  width: 100%;
   
   .water-ripple {
     position: fixed;
@@ -49,7 +63,6 @@ $color-border: #3A3A39;
     flex-direction: column;
     padding: 24px 20px;
     height: 100%; 
-    box-sizing: border-box; // Ensures padding doesn't push width out
   }
 
   /* --- TOP NAV --- */
@@ -88,18 +101,17 @@ $color-border: #3A3A39;
     }
   }
 
-  /* --- METRICS HUD (New Professional Banner) --- */
+  /* --- METRICS HUD --- */
   .metrics-hud {
     display: flex;
     align-items: center;
     background: transparent;
     border: 1px solid $color-border;
-    border-radius: 8px;
+    border-radius: 8px; 
     padding: 16px 20px;
     margin-bottom: 24px;
     flex-shrink: 0;
     overflow-x: auto; 
-    box-sizing: border-box;
 
     &::-webkit-scrollbar { display: none; }
     -ms-overflow-style: none;
@@ -173,7 +185,6 @@ $color-border: #3A3A39;
     display: flex;
     flex-direction: column;
     min-height: 0; 
-    width: 100%;
 
     .weekdays {
       display: grid;
@@ -191,12 +202,11 @@ $color-border: #3A3A39;
       flex: 1; 
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      /* Fixed: Changed grid rows to make squares */
-      grid-template-rows: repeat(6, minmax(40px, 1fr)); 
+      grid-template-rows: repeat(6, 1fr); 
       gap: 8px;
 
       .day-box {
-        background: $color-surface;
+        background: $color-surface; 
         border: 1px solid transparent;
         border-radius: 6px; 
         display: flex;
@@ -205,14 +215,11 @@ $color-border: #3A3A39;
         align-items: center;
         cursor: pointer;
         transition: border-color 0.2s, background 0.2s;
-        /* Force aspect ratio to prevent tall boxes */
-        aspect-ratio: 1 / 1; 
-        max-height: 60px; // Cap the max height so it stays tight
 
         &.empty { background: transparent; cursor: default; }
 
         .date-num { font-size: 1.1rem; font-weight: 500; color: $color-text; }
-        .dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 4px; }
+        .dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; }
 
         &.rest { opacity: 0.3; }
         
@@ -236,70 +243,52 @@ $color-border: #3A3A39;
     }
   }
 
-  /* ========================================================
-     MOBILE RESPONSIVENESS (FIX FOR SCREENSHOT)
-     ======================================================== */
+  /* ==========================================
+     MOBILE RESPONSIVENESS FIXES
+     ========================================== */
   @media (max-width: 600px) {
-    .dashboard-container {
-      // Ensure no white edges on body level for mobile
-      background-color: $color-bg;
-    }
-
     .dashboard-content {
-      padding: 16px 12px; 
-    }
-
-    .top-nav { 
-      margin-bottom: 16px; 
-      .month-selector {
-        .month-text h2 { font-size: 1.5rem; } 
-      }
+      padding: 16px 12px;
     }
 
     .metrics-hud {
-      display: flex; // Back to flex for neat row
-      justify-content: space-between;
-      gap: 5px;
-      padding: 12px 10px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      
-      .hud-actions, .hud-divider { 
-        display: none; 
-      }
+      padding: 12px 8px;
 
       .hud-block {
-        padding: 0;
-        text-align: center;
-        flex: 1;
+        padding: 0 8px;
+        .label { font-size: 0.6rem; }
+        h3 { font-size: 0.85rem; } // Text thoda adjust kiya taaki fit aaye
+      }
+      
+      .hud-divider {
+        height: 20px;
+      }
 
-        .label {
-          font-size: 0.55rem;
-          letter-spacing: 0.5px;
-          margin-bottom: 2px;
-        }
+      // ICONS WAPAS AA GAYE (display none hata diya)
+      .hud-actions { 
+        display: flex; 
+        gap: 6px;
+        padding-left: 8px;
 
-        h3 {
-          font-size: 0.8rem; 
-          white-space: normal; // Allows stacking
-          line-height: 1.1;
+        .action-btn {
+          padding: 8px;
+          font-size: 1rem;
         }
       }
     }
+    .top-nav { margin-bottom: 16px; }
 
-    /* Fixed Calendar for Mobile */
+    // CALENDAR STRETCHING FIX (Dabbe ab square lagenge, lambe nahi)
     .calendar-section {
-      .weekdays { font-size: 0.65rem; }
+      justify-content: center; // Grid ko center me rakhega
+      
       .days-grid {
-        gap: 6px; 
-        grid-template-rows: repeat(6, auto); // Auto fit rows
-        
+        flex: 0 1 auto; // Zabardasti poori vertical jagah khane se rokega
+        grid-template-rows: auto;
+        gap: 6px;
+
         .day-box {
-          border-radius: 4px;
-          max-height: 50px; // Tighter boxes for mobile
-          
-          .date-num { font-size: 0.95rem; }
-          .dot { margin-top: 2px; width: 3px; height: 3px; }
+          aspect-ratio: 1 / 1.15; // Width aur Height ka ratio fix kar diya
         }
       }
     }
