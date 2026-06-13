@@ -1,0 +1,35 @@
+2026/06/14-01:21:25.364 a20 Reusing MANIFEST C:\Users\KHUSHI SHARMA\OneDrive\ドキュメント\PWA_Workout_App\backend\whatsapp-session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/06/14-01:21:25.366 a20 Recovering log #324
+2026/06/14-01:21:25.467 a20 Reusing old log C:\Users\KHUSHI SHARMA\OneDrive\ドキュメント\PWA_Workout_App\backend\whatsapp-session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000324.log 
+2026/06/14-01:21:38.521 284c Level-0 table #339: started
+2026/06/14-01:21:38.586 284c Level-0 table #339: 1197593 bytes OK
+2026/06/14-01:21:38.588 284c Delete type=0 #324
+2026/06/14-01:21:38.972 284c Compacting 1@0 + 0@1 files
+2026/06/14-01:21:39.030 284c Generated table #340@0: 21120 keys, 578611 bytes
+2026/06/14-01:21:39.032 284c Compacted 1@0 + 0@1 files => 578611 bytes
+2026/06/14-01:21:39.033 284c compacted to: files[ 0 1 10 0 0 0 0 ]
+2026/06/14-01:21:39.732 284c Compacting 1@1 + 10@2 files
+2026/06/14-01:21:39.838 284c Generated table #341@1: 14099 keys, 2134634 bytes
+2026/06/14-01:21:39.993 284c Generated table #342@1: 106779 keys, 2259003 bytes
+2026/06/14-01:21:40.185 284c Generated table #343@1: 103764 keys, 2254783 bytes
+2026/06/14-01:21:40.346 284c Generated table #344@1: 41861 keys, 2204886 bytes
+2026/06/14-01:21:40.494 284c Generated table #345@1: 60318 keys, 2224296 bytes
+2026/06/14-01:21:40.598 284c Generated table #346@1: 34141 keys, 2192344 bytes
+2026/06/14-01:21:40.629 284c Generated table #347@1: 1246 keys, 2138481 bytes
+2026/06/14-01:21:40.672 284c Generated table #348@1: 1274 keys, 2138267 bytes
+2026/06/14-01:21:40.818 284c Generated table #349@1: 21259 keys, 2222234 bytes
+2026/06/14-01:21:40.954 284c Generated table #350@1: 33721 keys, 1943388 bytes
+2026/06/14-01:21:40.954 284c Compacted 1@1 + 10@2 files => 21712316 bytes
+2026/06/14-01:21:40.955 284c compacted to: files[ 0 0 10 0 0 0 0 ]
+2026/06/14-01:21:40.956 284c Delete type=2 #327
+2026/06/14-01:21:40.956 284c Delete type=2 #328
+2026/06/14-01:21:40.956 284c Delete type=2 #329
+2026/06/14-01:21:40.956 284c Delete type=2 #330
+2026/06/14-01:21:40.956 284c Delete type=2 #331
+2026/06/14-01:21:40.957 284c Delete type=2 #332
+2026/06/14-01:21:40.957 284c Delete type=2 #333
+2026/06/14-01:21:40.957 284c Delete type=2 #334
+2026/06/14-01:21:40.957 284c Delete type=2 #335
+2026/06/14-01:21:40.957 284c Delete type=2 #336
+2026/06/14-01:21:40.957 284c Delete type=2 #339
+2026/06/14-01:21:40.957 284c Delete type=2 #340
